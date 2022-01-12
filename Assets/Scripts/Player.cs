@@ -22,13 +22,13 @@ public class Player : MonoBehaviour
         {
             //transform.rotation *= Quaternion.Euler(5, 0, 0);
             audioSource.Play();
-            GetComponent<Renderer>().material.color = Color.black;
+            //GetComponent<Renderer>().material.color = Color.black;
         }
 
-        GameObject go = GameObject.Find("Cube");
+        /*GameObject go = GameObject.Find("Cube");
         if(go)
         {
             go.GetComponent<Renderer>().material.color = Color.cyan;
-        }
+        }*/
     }
 }
