@@ -39,7 +39,9 @@ public class GameManager : Singleton<GameManager>
 	{
 		state = State.GAME;
 		titleScreen.SetActive(false);
-		startGameEvent();
+		Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
+
+		startGameEvent?.Invoke();
 	}
 
 	public void OnStartTitle()

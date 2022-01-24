@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2808449883791181692}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,9 +37,65 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 109330, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 119370, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 119530, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 120940, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 131550, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 150976, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 155474, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 169230, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 170042, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 177274, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 192262, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 192262, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 192262, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 193738, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 197632, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 445984, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
       propertyPath: m_RootOrder
@@ -55,7 +111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 445984, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -71.1
       objectReference: {fileID: 0}
     - target: {fileID: 445984, guid: 733322986724f0c4fbd9df9e1dd33e7c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -109,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6f4e0223d66964e8e1c20bcde6fdda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: 100
 --- !u!114 &6543724072989962365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +181,16 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7459529577841537438, guid: b0dc6682393f9a644b83d729f008bbb1, type: 3}
   spawnTransform: {fileID: 2808449883791181692}
   fireRate: 0.25
+--- !u!65 &3898518776987900501
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404735744338526856}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 51.454674, y: 10, z: 44.27491}
+  m_Center: {x: 2.4504957, y: 0, z: -0.13064194}

@@ -104,6 +104,19 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: -1}
   speed: 50
   space: 0
+--- !u!114 &2558579755648969222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041634530371791603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209f1aa063c382e418de05033be3adac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 100
 --- !u!114 &3019879080974203579
 MonoBehaviour:
   m_ObjectHideFlags: 0
