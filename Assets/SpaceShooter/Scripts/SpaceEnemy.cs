@@ -19,16 +19,15 @@ public class SpaceEnemy : MonoBehaviour, IDestructable
     private void Update()
     {
         timer -= Time.deltaTime;
-        if(timer <= 0)
+        if(timer <= 0 && spaceWeapon)
         {
             timer = Random.Range(minFireTime, maxFireTime);
-            if(spaceWeapon) spaceWeapon.Fire();
+            spaceWeapon.Fire();
         }
     }
 
     public void Destroyed()
     {
-
         GameManager.Instance.Score += points;
     }
 }

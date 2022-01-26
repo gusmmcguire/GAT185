@@ -6,6 +6,11 @@ public class SpacePlayer : MonoBehaviour, IDestructable
 {
     [Range(0, 100), SerializeField, Tooltip("Speed of the player")] float speed = 40;
 
+    private void Start()
+    {
+        GameManager.Instance.playerMaxHealth = GetComponent<Health>().max;
+    }
+
     void Update()
     {
         Vector3 direction = Vector3.zero;
@@ -18,10 +23,12 @@ public class SpacePlayer : MonoBehaviour, IDestructable
             GetComponent<SpaceWeapon>().Fire();
         }
 
+        GameManager.Instance.playerHealth = GetComponent<Health>().health;
     }
     
     public void Destroyed()
     {
-        //GameManger.Instance.OnStopGame();
+        GameManager.Instance.playerHealth = 0;
+        GameManager.Instance.OnPlayerDead();
     }
 }

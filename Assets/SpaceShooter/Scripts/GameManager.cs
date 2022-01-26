@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : Singleton<GameManager>
@@ -15,6 +16,12 @@ public class GameManager : Singleton<GameManager>
 	[SerializeField] Transform playerSpawn;
 	[SerializeField] GameObject titleScreen;
 	[SerializeField] TMP_Text scoreUI;
+	[SerializeField] TMP_Text livesUI;
+	[SerializeField] Slider healthBarUI;
+
+	public float playerHealth{set{healthBarUI.value = value;}}
+	public float playerMaxHealth{set{healthBarUI.maxValue = value;}}
+
 
 	public delegate void GameEvent();
 
@@ -22,6 +29,7 @@ public class GameManager : Singleton<GameManager>
 	public event GameEvent stopGameEvent;
 
 	int score = 0;
+	int lives;
 	State state = State.TITLE;
 
 	public int Score
@@ -30,14 +38,26 @@ public class GameManager : Singleton<GameManager>
 		set
 		{
 			score = value;
-			scoreUI.text = score.ToString();
+			scoreUI.text = "Score: " + score.ToString();
 		}
 	}
-	public int Lives { get; set; }
+
+	public int Lives
+	{
+		get { return lives; }
+		set
+		{
+			lives = value;
+			livesUI.text = "Lives: " +  lives.ToString();
+		}
+	}
 
 	public void OnStartGame()
 	{
 		state = State.GAME;
+		Score = 0;
+		Lives = 3;
+
 		titleScreen.SetActive(false);
 		Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
 
@@ -51,4 +71,9 @@ public class GameManager : Singleton<GameManager>
 		stopGameEvent();
 	}
 
+	public void OnPlayerDead()
+    {
+		Lives -= 1;
+		Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
+    }
 }

@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     [SerializeField] float maxHealth = 100;
 
     public float health { get; set; }
+    public float max { get { return maxHealth; } }
 
     void Start()
     {
