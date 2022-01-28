@@ -10,6 +10,8 @@ public class BoxSpawner : MonoBehaviour
     [SerializeField] float maxTime;
     [SerializeField] bool active = true;
 
+    public float timeModifier = 1;
+
     BoxCollider boxCollider;
     float timer;
 
@@ -29,7 +31,7 @@ public class BoxSpawner : MonoBehaviour
         timer -= Time.deltaTime;
         if(timer <= 0)
         {
-            timer = Random.Range(minTime, maxTime);
+            timer = Random.Range(minTime, maxTime) * timeModifier;
 
             Instantiate(spawnPrefabs[Random.Range(0, spawnPrefabs.Length)],GetRandomPointInBoxCollider(),transform.rotation);
         }

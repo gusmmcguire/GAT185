@@ -30,6 +30,66 @@ Transform:
   m_Father: {fileID: 7978530925973521763}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8507107004762893915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2547963979197248594}
+  m_Layer: 7
+  m_Name: Spawn (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2547963979197248594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8507107004762893915}
+  m_LocalRotation: {x: 0, y: -0.258819, z: 0, w: 0.9659259}
+  m_LocalPosition: {x: -7.92, y: -0.97, z: 6.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7978530925973521763}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
+--- !u!1 &8789464977636557660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6087322902475917456}
+  m_Layer: 7
+  m_Name: Spawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6087322902475917456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789464977636557660}
+  m_LocalRotation: {x: 0, y: 0.2588191, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 8.08, y: -0.97, z: 6.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7978530925973521763}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
 --- !u!1001 &7978530925973164461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -234,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b927dc2a4552d046a15953b9d0241cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathPrefab: {fileID: 100000, guid: f881607407b15cc46b24d6bda799037a, type: 3}
+  deathPrefab: {fileID: 8920352700723646624, guid: 811eb1bbcd3209546bf31d130c1b35eb, type: 3}
   destroyOnDeath: 1
   maxHealth: 50
 --- !u!114 &-2653167347714956619
@@ -249,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec31eac3c8028ca4aa8f80c2214c5666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 30
 --- !u!114 &801889995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,7 +338,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7459529577841537438, guid: 4d6bfc75597bcb948a9fd77b91fd83f7, type: 3}
-  spawnTransform: {fileID: 8897365578069016195}
+  spawnTransforms:
+  - {fileID: 8897365578069016195}
+  - {fileID: 6087322902475917456}
+  - {fileID: 2547963979197248594}
   fireRate: 0
 --- !u!114 &5071211987844697582
 MonoBehaviour:

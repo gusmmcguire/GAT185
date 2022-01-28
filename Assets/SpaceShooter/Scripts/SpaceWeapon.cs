@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpaceWeapon : MonoBehaviour
 {
     [SerializeField] GameObject projectilePrefab;
-    [SerializeField] Transform spawnTransform;
+    [SerializeField] Transform[] spawnTransforms;
     [SerializeField] float fireRate;
 
     float fireTimer = 0;
@@ -19,6 +19,9 @@ public class SpaceWeapon : MonoBehaviour
     {
         if (fireTimer > 0) return;
         fireTimer = fireRate;
-        Instantiate(projectilePrefab, spawnTransform.position, spawnTransform.rotation);
+        foreach(Transform spawnTransform in spawnTransforms)
+        {
+            Instantiate(projectilePrefab, spawnTransform.position, spawnTransform.rotation);
+        }
     }
 }

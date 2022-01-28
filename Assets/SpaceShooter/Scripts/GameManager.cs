@@ -9,15 +9,22 @@ public class GameManager : Singleton<GameManager>
 	enum State
 	{
 		TITLE,
-		GAME
+		PLAYER_START,
+		GAME,
+		PLAYER_DEAD,
+		GAME_OVER
 	}
 
 	[SerializeField] GameObject playerPrefab;
 	[SerializeField] Transform playerSpawn;
+	[SerializeField] BoxSpawner spawner;
+
 	[SerializeField] GameObject titleScreen;
+	[SerializeField] GameObject gameOverScreen;
 	[SerializeField] TMP_Text scoreUI;
 	[SerializeField] TMP_Text livesUI;
 	[SerializeField] Slider healthBarUI;
+
 
 	public float playerHealth{set{healthBarUI.value = value;}}
 	public float playerMaxHealth{set{healthBarUI.maxValue = value;}}
@@ -31,6 +38,8 @@ public class GameManager : Singleton<GameManager>
 	int score = 0;
 	int lives;
 	State state = State.TITLE;
+	float stateTimer;
+	float gameTimer = 0;
 
 	public int Score
 	{
@@ -52,11 +61,58 @@ public class GameManager : Singleton<GameManager>
 		}
 	}
 
-	public void OnStartGame()
+    private void Start()
+    {
+		stopGameEvent += DestroyAllEnemies;
+    }
+
+    private void Update()
+    {
+		stateTimer -= Time.deltaTime;
+		
+
+        switch (state)
+        {
+            case State.TITLE:
+                break;
+            case State.PLAYER_START:
+				spawner.timeModifier = 1;
+				Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
+				startGameEvent();
+				state = State.GAME;
+				break;
+            case State.GAME:
+				gameTimer += Time.deltaTime;
+
+				if (gameTimer >= 5)
+				{
+					gameTimer = 0;
+					spawner.timeModifier -= 0.1f;
+					spawner.timeModifier = Mathf.Max(0.2f, spawner.timeModifier);
+				}
+				break;
+            case State.PLAYER_DEAD:
+				if(stateTimer <= 0) state = State.PLAYER_START;
+                break;
+            case State.GAME_OVER:
+				if (stateTimer <= 0)
+				{
+					state = State.TITLE;
+					gameOverScreen.SetActive(false);
+					OnStartTitle();
+				}
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void OnStartGame()
 	{
 		state = State.GAME;
 		Score = 0;
 		Lives = 3;
+		gameTimer = 0;
 
 		titleScreen.SetActive(false);
 		Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
@@ -73,7 +129,29 @@ public class GameManager : Singleton<GameManager>
 
 	public void OnPlayerDead()
     {
-		Lives -= 1;
-		Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
-    }
+		Lives = lives - 1;
+		if(lives == 0)
+        {
+			state = State.GAME_OVER;
+			stateTimer = 5;
+			gameOverScreen.SetActive(true);
+        }
+        else
+        {
+			state = State.PLAYER_DEAD;
+			stateTimer = 3;
+        }
+
+		stopGameEvent();
+	}
+
+	private void DestroyAllEnemies()
+	{
+		// destroy all enemies
+		var spaceEnemies = FindObjectsOfType<SpaceEnemy>();
+		foreach (var spaceEnemy in spaceEnemies)
+		{
+			Destroy(spaceEnemy.gameObject);
+		}
+	}
 }

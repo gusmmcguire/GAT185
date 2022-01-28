@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec31eac3c8028ca4aa8f80c2214c5666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 50
 --- !u!114 &3531515345147997908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b927dc2a4552d046a15953b9d0241cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathPrefab: {fileID: 0}
+  deathPrefab: {fileID: 1410961165288689013, guid: be2a09ea4207f0f4681477071b3d8489, type: 3}
   destroyOnDeath: 1
   maxHealth: 0
 --- !u!114 &4556028570962249411

@@ -165,6 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b927dc2a4552d046a15953b9d0241cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathPrefab: {fileID: 100014, guid: f99757c3449090646b2e54da3138946a, type: 3}
+  deathPrefab: {fileID: 8920352700723646624, guid: 811eb1bbcd3209546bf31d130c1b35eb, type: 3}
   destroyOnDeath: 1
   maxHealth: 10
