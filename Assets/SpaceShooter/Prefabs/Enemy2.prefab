@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec31eac3c8028ca4aa8f80c2214c5666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 50
 --- !u!114 &-5295718415706810386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
   spaceWeapon: {fileID: 592006264949579518, guid: dd24d7607e639974391b39d0f18385b0, type: 3}
   minFireTime: 1
   maxFireTime: 3
-  points: 200
+  points: 400
 --- !u!114 &1274413061364623266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathPrefab: {fileID: 8920352700723646624, guid: 811eb1bbcd3209546bf31d130c1b35eb, type: 3}
   destroyOnDeath: 1
-  maxHealth: 50
+  maxHealth: 100
 --- !u!114 &5841278482163260841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a2dbe34d6cf6d8498b6f065ce8c51a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: 1}
+  direction: {x: 0, y: 0, z: 2}
   speed: 50
   space: 1
