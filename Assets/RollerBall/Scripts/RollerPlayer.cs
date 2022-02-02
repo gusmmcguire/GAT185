@@ -8,6 +8,7 @@ public class RollerPlayer : MonoBehaviour
     [SerializeField] float maxForce = 5;
     [SerializeField] float jumpForce = 5;
     [SerializeField] ForceMode forceMode;
+    [SerializeField] Transform viewTransform;
 
     Rigidbody rb;
     Vector3 force = Vector3.zero;
@@ -24,7 +25,11 @@ public class RollerPlayer : MonoBehaviour
         direction.x = Input.GetAxis("Horizontal");
         direction.z = Input.GetAxis("Vertical");
 
+        //convert world space to view space movement
+        Quaternion viewSpace = Quaternion.AngleAxis(viewTransform.rotation.eulerAngles.y, Vector3.up);
+        direction = viewSpace * direction;
         force = direction * maxForce;
+
 
         if (Input.GetButtonDown("Jump"))
         {
