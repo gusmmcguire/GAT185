@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody), typeof(Health))]
 public class RollerPlayer : MonoBehaviour
 {
     [SerializeField] float maxForce = 5;
@@ -35,6 +35,8 @@ public class RollerPlayer : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+
+        RollerGameManager.Instance.playerHealth = GetComponent<Health>().health;
     }
 
     private void FixedUpdate()

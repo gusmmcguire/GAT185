@@ -62,6 +62,7 @@ MonoBehaviour:
   amplitude: 0.25
   ampRate: 3
   spinRate: 45
+  points: 20
 --- !u!114 &-3377698638592060458
 MonoBehaviour:
   m_ObjectHideFlags: 0
