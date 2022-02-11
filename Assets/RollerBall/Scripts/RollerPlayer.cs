@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(Health))]
-public class RollerPlayer : MonoBehaviour
+public class RollerPlayer : MonoBehaviour, IDestructable
 {
     [SerializeField] float maxForce = 5;
     [SerializeField] float jumpForce = 5;
@@ -42,5 +42,10 @@ public class RollerPlayer : MonoBehaviour
     private void FixedUpdate()
     {
         rb.AddForce(force, forceMode);
+    }
+
+    public void Destroyed()
+    {
+        RollerGameManager.Instance.OnPlayerDead();
     }
 }

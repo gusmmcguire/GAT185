@@ -17,11 +17,13 @@ public class RollerGameManager : Singleton<RollerGameManager>
 
 	[SerializeField] GameObject playerPrefab;
 	[SerializeField] Transform playerSpawn;
+	[SerializeField] GameObject mainCamera;
 
 	[SerializeField] GameObject titleScreen;
 	[SerializeField] GameObject gameOverScreen;
 	[SerializeField] TMP_Text scoreUI;
 	[SerializeField] TMP_Text livesUI;
+	[SerializeField] TMP_Text timeUI;
 	[SerializeField] Slider healthBarUI;
 
 
@@ -38,7 +40,7 @@ public class RollerGameManager : Singleton<RollerGameManager>
 	int lives;
 	State state = State.TITLE;
 	float stateTimer;
-	float gameTimer = 0;
+	float gameTime = 0;
 
 	public int Score
 	{
@@ -60,7 +62,17 @@ public class RollerGameManager : Singleton<RollerGameManager>
 		}
 	}
 
-    private void Start()
+	public float GameTime
+	{
+		get { return gameTime; }
+		set
+		{
+			gameTime = value;
+			timeUI.text = "<mspace=mspace=60> Time: " + gameTime.ToString("0.0") + "</mspace>";
+		}
+	}
+
+	private void Start()
     {
 		stopGameEvent += DestroyAllEnemies;
     }
@@ -75,22 +87,20 @@ public class RollerGameManager : Singleton<RollerGameManager>
             case State.TITLE:
                 break;
             case State.PLAYER_START:
-				
-				//Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
-				startGameEvent();
-				state = State.GAME;
-				break;
+                OnPlayerStart();
+                break;
             case State.GAME:
-				gameTimer += Time.deltaTime;
+				GameTime -= Time.deltaTime;
 
-				if (gameTimer >= 5)
+				if (gameTime <= 0)
 				{
-					gameTimer = 0;
-					
+					GameTime = 0;
+					state = State.GAME_OVER;
 				}
 				break;
             case State.PLAYER_DEAD:
 				if(stateTimer <= 0) state = State.PLAYER_START;
+				mainCamera.SetActive(true);
                 break;
             case State.GAME_OVER:
 				if (stateTimer <= 0)
@@ -105,15 +115,24 @@ public class RollerGameManager : Singleton<RollerGameManager>
         }
     }
 
+    private void OnPlayerStart()
+    {
+		
+        Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
+        mainCamera.SetActive(false);
+        startGameEvent?.Invoke();
+        state = State.GAME;
+        GameTime = 60;
+    }
+
     public void OnStartGame()
 	{
-		state = State.GAME;
+		
 		Score = 0;
 		Lives = 3;
-		gameTimer = 0;
-
 		titleScreen.SetActive(false);
-		//Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
+		OnPlayerStart();
+
 
 		startGameEvent?.Invoke();
 	}
