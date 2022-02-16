@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233b11c60b61268419bd07afae94938a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxForce: 10
+  maxForce: 5
   jumpForce: 5
   forceMode: 0
   viewTransform: {fileID: 1739496051753500606}
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b927dc2a4552d046a15953b9d0241cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathPrefab: {fileID: 0}
+  deathPrefab: {fileID: 100014, guid: f99757c3449090646b2e54da3138946a, type: 3}
   destroyOnDeath: 1
   maxHealth: 100
   destroyRoot: 1

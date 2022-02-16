@@ -75,9 +75,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b927dc2a4552d046a15953b9d0241cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathPrefab: {fileID: 0}
+  deathPrefab: {fileID: 100004, guid: 96536afb634b32043bb988d4576053d3, type: 3}
   destroyOnDeath: 1
   maxHealth: 0
+  destroyRoot: 0
 --- !u!1001 &150998407684962954
 PrefabInstance:
   m_ObjectHideFlags: 0
