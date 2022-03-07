@@ -10,6 +10,9 @@ public class ScreenFade : MonoBehaviour
     [SerializeField] Color startColor;
     [SerializeField] Color endColor;
     [SerializeField] bool startOnAwake = true;
+    
+
+    public bool isDone { get; set; } = false;
 
     void Start()
     {
@@ -47,6 +50,6 @@ public class ScreenFade : MonoBehaviour
             yield return null;
         }
 
-        yield return null;
+        isDone = true;
     }
 }

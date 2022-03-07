@@ -53,10 +53,6 @@ public class CharacterPlayer : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), turnRate * Time.deltaTime);
         }
 
-        if (Input.GetButtonDown("Fire1")) animator.SetTrigger("throw");
-        if (Input.GetButtonDown("Fire2")) animator.SetTrigger("melee");
-        if (Input.GetButtonDown("Fire3")) animator.SetBool("isArmed", !animator.GetBool("isArmed"));
-
         animator.SetFloat("Speed", (direction * speed).magnitude);
         animator.SetFloat("velocityY", velocity.y);
         animator.SetFloat("airTime", airTime);
